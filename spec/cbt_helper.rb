@@ -25,3 +25,24 @@ Capybara.register_driver :selenium_cbt do |app|
 end
 
 Capybara.default_driver = :selenium_cbt
+
+RSpec.configure do |config|
+  config.after(:suite) do
+    begin
+      session_id = Capybara.current_session.driver.browser.session_id
+      any_failed = RSpec.world.filtered_examples.values.flatten.any? do |x|
+        x.metadata[:execution_result].status == :failed
+      end
+      score = any_failed ? "fail" : "pass"
+
+      require 'rest-client'
+
+      RestClient.put(
+        "https://#{cbt_username}:#{cbt_authkey}@crossbrowsertesting.com/api/v3/selenium/#{session_id}",
+        "action=set_score&score=#{score}"
+      )
+    rescue StandardError => e
+      puts "Error while tracking score: #{e}"
+    end
+  end
+end
