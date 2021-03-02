@@ -13,8 +13,13 @@ Capybara.register_driver :selenium_cbt do |app|
 
   cbt_url = "http://#{cbt_username}:#{cbt_authkey}@hub.crossbrowsertesting.com/wd/hub"
 
-  caps['browserName'] = 'Firefox'
-  caps['platform'] = 'Mac OSX 10.12'
+  platform = JSON.parse(File.read("spec/cbt_browsers.json")).sample
+  browser = platform["browsers"].sample
+
+  caps.merge!(platform["caps"])
+  caps.merge!(browser["caps"])
+
+  puts "Running CBT tests with caps: #{caps.inspect}"
 
   Capybara::Selenium::Driver.new(
     app,
