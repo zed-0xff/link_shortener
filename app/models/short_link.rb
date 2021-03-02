@@ -1,4 +1,6 @@
 class ShortLink < ApplicationRecord
+  validates :original_url, presence: true, url: true
+
   before_create :generate_slug
 
   private
