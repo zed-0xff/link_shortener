@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Original url:</strong>
+  <%= @short_link.original_url %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= link_to link_redirect_url(slug: @short_link.slug), link_redirect_url(slug: @short_link.slug) %>
+</p>
