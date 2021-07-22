@@ -1,5 +1,5 @@
 {
-  "name": "linkfeeder",
+  "name": "link_shortener",
   "private": true,
   "dependencies": {
     "@rails/ujs": "^6.0.0",
