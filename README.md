@@ -1,24 +1,8 @@
-# README
+# LinkShortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This simple Ruby on Rails application is a part of a blog post - [Write Bulletproof Multi-Browser Test Suites With CrossBrowserTesting](https://www.leadfeeder.com/blog/multi-browser-test-suites/).
 
-Things you may want to cover:
+## Starting the application
+Run `bin/setup` in order to install necessary dependencies and prepare the database.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then call `rails s` to start the server.
