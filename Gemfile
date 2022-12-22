@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -41,7 +41,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'rspec-rails'
-  gem 'ngrok-tunnel'
+  gem "ngrok-tunnel", github: "GetJobber/ngrok-tunnel", ref: "c2bf7dd"
   gem 'rest-client'
 end
 
